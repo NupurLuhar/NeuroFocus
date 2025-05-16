@@ -1,0 +1,34 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import Optional
+from datetime import datetime
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # For dev only, restrict in prod
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+class UserStats(BaseModel):
+    user_id: Optional[str]
+    emotion: str
+    typing_speed: float
+    error_rate: float
+    timestamp: datetime
+
+# In-memory DB simulation
+stats_db = []
+
+@app.post("/stats")
+async def save_stats(data: UserStats):
+    stats_db.append(data)
+    return {"message": "Stats saved"}
+
+@app.get("/stats")
+async def get_stats():
+    return stats_db
