@@ -1,0 +1,12 @@
+smart-study-room/
+├── backend/                # FastAPI backend (optional)
+├── frontend/               # React app
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── utils/
+│   │   ├── App.js
+│   │   ├── index.js
+│   ├── package.json
+├── README.md
