@@ -1,0 +1,10 @@
+Download Models for face-api.js
+You must download the models from:
+
+https://github.com/justadudewhohacks/face-api.js/tree/master/weights
+
+Copy these into frontend/public/models/:
+
+tiny_face_detector_model-weights_manifest.json + binaries
+
+face_expression_model-weights_manifest.json + binaries
